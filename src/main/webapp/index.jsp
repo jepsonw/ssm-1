@@ -1,7 +1,7 @@
 <html>
 <body>
 <h2>Hello World!</h2>
-<form action="hello" >
+<form action="user/hello" >
 <input type="submit" name="id" value="1"/>
 </form>
 </body>

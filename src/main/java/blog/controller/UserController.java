@@ -10,6 +10,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,12 +42,12 @@ public class UserController extends BaseController {
 	private IUserService userService;
 
 	@RequestMapping(value = "/hello", method = RequestMethod.POST)
-	public String getByController(String id) {
+	public String getByController( String id) {
 		return "hello";
 	}
 
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
-	public ModelAndView getTeemo(Integer id) {
+	public ModelAndView getTeemo( Integer id) {
 		ModelAndView modelAndView = new ModelAndView();
 		modelAndView.addObject("userName", userService.selectByPrimaryKey(id)
 				.getName());
@@ -58,7 +59,7 @@ public class UserController extends BaseController {
 
 	@ResponseBody
 	@RequestMapping(value = "/getById", method = RequestMethod.POST)
-	public AjaxResult getById(Integer id) {
+	public AjaxResult getById( Integer id) {
 
 		return AjaxResult.getOK(userService.selectByPrimaryKey(id));
 	}
